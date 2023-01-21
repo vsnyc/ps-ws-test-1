@@ -123,10 +123,6 @@ Resources:
           - S3Region: !If [UsingDefaultBucket, !Ref 'AWS::Region', !Ref QSS3BucketRegion]
             S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]
       Parameters:
-        BastionAMIOS:
-          Ref: BastionAMIOS
-        BastionInstanceType:
-          Ref: BastionInstanceType
         KeyPairName:
           Ref: KeyPairName
         PublicSubnet1ID:
@@ -143,8 +139,6 @@ Resources:
           Ref: QSS3BucketRegion
         QSS3KeyPrefix:
           Fn::Sub: ${QSS3KeyPrefix}submodules/quickstart-linux-bastion/
-        RemoteAccessCIDR:
-          Ref: RemoteAccessCIDR
         VPCID:
           Fn::GetAtt:
           - VPCStack
